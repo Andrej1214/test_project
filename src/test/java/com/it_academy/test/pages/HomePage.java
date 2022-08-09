@@ -8,12 +8,8 @@ import static java.time.Duration.ofSeconds;
 public class HomePage extends BasePage {
     private static final String ELEMENT_OF_MAIN_MENU_LINK_PATTERN =
             "//div//ul[@class='b-main-navigation']//span[contains(text(),'%s')]";
-    private static final String AVTOBARACHOLKA_SUBMENU_LINK_PATTERN =
-            "//div[contains(@class,'__dropdown-column_') and .//a[contains(text(),'Автобарахолка')]]";
-    private static final String DOMA_I_KVARTIRY_SUBMENU_LINK_PATTERN =
-            "//div[contains(@class,'__dropdown-column') and .//a[contains(text(),'Продажа')]]";
-    private static final String SEARCH_LINK =
-            "//form[contains(@class,'__form')]";
+    private static final String ELEMENT_SUBMENU_LINK_PATTERN =
+            "//div[contains(@class,'__dropdown-column_') and .//a[contains(text(),'%s')]]";
     private static final String NEWS_LINK =
             "//div[contains(@class,'__dropdown-grid') and .//a[contains(text(),'Кошелек')]]";
 
@@ -24,18 +20,15 @@ public class HomePage extends BasePage {
     public void movePointerOnElementOfMainMenu(String value) {
         $x(format(ELEMENT_OF_MAIN_MENU_LINK_PATTERN, value)).shouldBe(visible, ofSeconds(100)).hover();
     }
-    public boolean displayedSubmenuNews() {
+    public boolean verifySubmenuNewsIsDisplayed() {
         return $x(NEWS_LINK).shouldBe(visible, ofSeconds(100)).isDisplayed();
     }
 
-    public boolean displayedSubmenuAvtobaracholka() {
-        return $x(AVTOBARACHOLKA_SUBMENU_LINK_PATTERN).shouldBe(visible, ofSeconds(100)).isDisplayed();
+    public boolean verifySubmenuAvtobaracholkaIsDisplayed() {
+        return $x(format(ELEMENT_SUBMENU_LINK_PATTERN,"Автобарахолка")).shouldBe(visible, ofSeconds(100)).isDisplayed();
     }
 
-    public boolean displayedSubmenuDomaIKvartiry() {
-        return $x(DOMA_I_KVARTIRY_SUBMENU_LINK_PATTERN).shouldBe(visible, ofSeconds(100)).isDisplayed();
-    }
-    public boolean movePointerOnElementSearch() {
-        return $x(DOMA_I_KVARTIRY_SUBMENU_LINK_PATTERN).shouldBe(visible, ofSeconds(100)).isDisplayed();
+    public boolean verifySubmenuDomaIKvartiryIsDisplayed() {
+        return $x(format(ELEMENT_SUBMENU_LINK_PATTERN,"Продажа")).shouldBe(visible, ofSeconds(100)).isDisplayed();
     }
 }

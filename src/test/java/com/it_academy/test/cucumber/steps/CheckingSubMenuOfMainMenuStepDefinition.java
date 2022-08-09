@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CheсkSubMenuStepDefinition {
+public class CheckingSubMenuOfMainMenuStepDefinition {
     private HomePage homePage = new HomePage();
 
     @Given("the user opens onliner website")
@@ -22,11 +22,13 @@ public class CheсkSubMenuStepDefinition {
 
     @Then("submenu with categories division by price, by city and brand is displayed")
     public void submenuWithCategoriesDivisionByPriceByCityAndBrandIsDisplayed() {
-        assertThat(homePage.displayedSubmenuAvtobaracholka()).as("Pointed submenu isn't displayed").isTrue();
+        assertThat(homePage.verifySubmenuAvtobaracholkaIsDisplayed())
+                .as("Pointed submenu isn't displayed").isTrue();
     }
 
     @Then("submenu with categories cities, number of rooms, price range is displayed")
     public void submenuWithCategoriesCitiesNumberOfRoomsPriceRangeIsDisplayed() {
-        assertThat(homePage.displayedSubmenuDomaIKvartiry()).as("Pointed submenu isn't displayed").isTrue();
+        assertThat(homePage.verifySubmenuDomaIKvartiryIsDisplayed())
+                .as("Pointed submenu isn't displayed").isTrue();
     }
 }

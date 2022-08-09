@@ -26,14 +26,14 @@ public class RemoteInFirefoxTest {
     public void testExistingSubMenuNews() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Новости");
-        assertThat(homePage.displayedSubmenuNews()).as("Submenu 'Новости' is not displayed").isTrue();
+        assertThat(homePage.verifySubmenuNewsIsDisplayed()).as("Submenu 'Новости' is not displayed").isTrue();
     }
 
     @Test
     public void testExistingSubMenuHousesAndFlats() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Дома и квартиры");
-        assertThat(homePage.displayedSubmenuDomaIKvartiry())
+        assertThat(homePage.verifySubmenuDomaIKvartiryIsDisplayed())
                 .as("Submenu 'Дома и квартиры' is not displayed").isTrue();
     }
 

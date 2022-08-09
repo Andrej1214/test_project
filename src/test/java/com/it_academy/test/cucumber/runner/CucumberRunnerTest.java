@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         monochrome = true,
         glue = "com.it_academy.test.cucumber.steps",
-        features = "src/test/resources/com.it_academy.test.features"
+        features = "src/test/resources/com.it_academy/test.features"
 )
 public class CucumberRunnerTest {
 }

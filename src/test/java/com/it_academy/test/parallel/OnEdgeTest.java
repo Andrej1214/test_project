@@ -22,7 +22,7 @@ public class OnEdgeTest {
     public void testExistingSubMenuHousesAndFlats() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Дома и квартиры");
-        assertThat(homePage.displayedSubmenuDomaIKvartiry())
+        assertThat(homePage.verifySubmenuDomaIKvartiryIsDisplayed())
                 .as("Submenu 'Дома и квартиры' is not displayed").isTrue();
     }
 
@@ -30,7 +30,7 @@ public class OnEdgeTest {
     public void testExistingSubMenuCarMarket() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Автобарахолка");
-        assertThat(homePage.displayedSubmenuAvtobaracholka())
+        assertThat(homePage.verifySubmenuAvtobaracholkaIsDisplayed())
                 .as("Submenu 'Автобарахолка' is not displayed").isTrue();
     }
     @AfterClass
