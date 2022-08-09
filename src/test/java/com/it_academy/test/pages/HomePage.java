@@ -18,17 +18,17 @@ public class HomePage extends BasePage {
     }
 
     public void movePointerOnElementOfMainMenu(String value) {
-        $x(format(ELEMENT_OF_MAIN_MENU_LINK_PATTERN, value)).shouldBe(visible, ofSeconds(100)).hover();
+        $x(format(ELEMENT_OF_MAIN_MENU_LINK_PATTERN, value)).shouldBe(visible, ofSeconds(300)).hover();
     }
     public boolean verifySubmenuNewsIsDisplayed() {
-        return $x(NEWS_LINK).shouldBe(visible, ofSeconds(100)).isDisplayed();
+        return $x(NEWS_LINK).shouldBe(visible, ofSeconds(300)).isDisplayed();
     }
 
     public boolean verifySubmenuAvtobaracholkaIsDisplayed() {
-        return $x(format(ELEMENT_SUBMENU_LINK_PATTERN,"Автобарахолка")).shouldBe(visible, ofSeconds(100)).isDisplayed();
+        return $x(format(ELEMENT_SUBMENU_LINK_PATTERN,"Автобарахолка")).shouldBe(visible, ofSeconds(300)).isDisplayed();
     }
 
     public boolean verifySubmenuDomaIKvartiryIsDisplayed() {
-        return $x(format(ELEMENT_SUBMENU_LINK_PATTERN,"Продажа")).shouldBe(visible, ofSeconds(100)).isDisplayed();
+        return $x(format(ELEMENT_SUBMENU_LINK_PATTERN,"Продажа")).shouldBe(visible, ofSeconds(300)).isDisplayed();
     }
 }
