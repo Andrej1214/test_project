@@ -6,8 +6,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BasePage {
     public BasePage() {
-        Configuration.browser = "chrome";
-        Configuration.pageLoadTimeout = 60000;
-        open();
+       Configuration.pageLoadTimeout = 60000;
+       Configuration.screenshots = true;
     }
 }

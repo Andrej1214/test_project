@@ -13,15 +13,15 @@ public class WebDriverFactory {
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver.set(new ChromeDriver());
-            driver.get().manage().window().maximize();
+            windowMaximize();
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver.set(new FirefoxDriver());
-            driver.get().manage().window().maximize();
+            windowMaximize();
         } else {
             WebDriverManager.edgedriver().setup();
             driver.set(new EdgeDriver());
-            driver.get().manage().window().maximize();
+            windowMaximize();
         }
         return driver.get();
     }
@@ -30,8 +30,7 @@ public class WebDriverFactory {
         return driver.get();
     }
 
-    public static void closeDriver() {
-        driver.get().close();
-        driver.remove();
+    private static void windowMaximize(){
+        driver.get().manage().window().maximize();
     }
 }

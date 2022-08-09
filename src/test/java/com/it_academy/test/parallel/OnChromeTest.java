@@ -2,17 +2,40 @@ package com.it_academy.test.parallel;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.it_academy.parallel.WebDriverFactory;
+import com.it_academy.test.pages.HomePage;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import static com.codeborne.selenide.Selenide.open;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class OnChromeTest {
-    @Test
-    public void testExistingOnlinerMenu() {
-        WebDriver webDriver = WebDriverFactory.setDriver("chrome");
+    private HomePage homePage = new HomePage();
+
+    @BeforeClass
+    public static void setUp() {
+        WebDriver webDriver = WebDriverFactory.setDriver("firefox");
         WebDriverRunner.setWebDriver(webDriver);
-        open("https://www.onliner.by/");
+    }
+
+    @Test
+    public void testExistingSubMenuNews() {
+        homePage.openOnlinerWebsite();
+        homePage.movePointerOnElementOfMainMenu("Новости");
+        assertThat(homePage.displayedSubmenuNews()).as("Submenu 'Новости' is not displayed").isTrue();
+    }
+
+    @Test
+    public void testExistingSubMenuCarMarket() {
+        homePage.openOnlinerWebsite();
+        homePage.movePointerOnElementOfMainMenu("Автобарахолка");
+        assertThat(homePage.displayedSubmenuAvtobaracholka()).as("Submenu 'Автобарахолка' is not displayed").isTrue();
+    }
+
+    @AfterClass
+    public static void closeWebBrowser() {
         WebDriverRunner.closeWebDriver();
     }
 }
