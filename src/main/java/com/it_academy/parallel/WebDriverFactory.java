@@ -18,7 +18,7 @@ public class WebDriverFactory {
             WebDriverManager.firefoxdriver().setup();
             driver.set(new FirefoxDriver());
             windowMaximize();
-        } else {
+        } else if(browser.equals("edge")){
             WebDriverManager.edgedriver().setup();
             driver.set(new EdgeDriver());
             windowMaximize();

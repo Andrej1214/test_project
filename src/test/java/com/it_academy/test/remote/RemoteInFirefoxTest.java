@@ -26,7 +26,8 @@ public class RemoteInFirefoxTest {
     public void testExistingSubMenuNews() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Новости");
-        assertThat(homePage.verifySubmenuNewsIsDisplayed()).as("Submenu 'Новости' is not displayed").isTrue();
+        assertThat(homePage.verifySubmenuNewsIsDisplayed())
+                .as("Submenu 'Новости' is not displayed").isTrue();
     }
 
     @Test
