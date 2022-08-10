@@ -6,8 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         OnChromeTest.class,
-        OnFirefoxTest.class,
-        OnEdgeTest.class
+        OnFirefoxTest.class
 })
 public class SuiteForParallelTest {
 }
