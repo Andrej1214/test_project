@@ -17,7 +17,7 @@ public class CapabilityFactory {
                 capabilities = OptionsManager.getEdgeDesiredCapabilities();
                 break;
             default:
-                System.out.println("Нет такого драйвера");
+                System.err.println("Нет такого драйвера");
         }
         return capabilities;
     }

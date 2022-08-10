@@ -16,7 +16,7 @@ public class OnChromeTest {
 
     @BeforeClass
     public static void setUp() {
-        WebDriver webDriver = WebDriverFactory.setDriver("firefox");
+        WebDriver webDriver = WebDriverFactory.setDriver("chrome");
         WebDriverRunner.setWebDriver(webDriver);
     }
 
@@ -24,14 +24,16 @@ public class OnChromeTest {
     public void testExistingSubMenuNews() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Новости");
-        assertThat(homePage.verifySubmenuNewsIsDisplayed()).as("Submenu 'Новости' is not displayed").isTrue();
+        assertThat(homePage.verifySubmenuNewsIsDisplayed())
+                .as("Submenu 'Новости' is not displayed").isTrue();
     }
 
     @Test
     public void testExistingSubMenuCarMarket() {
         homePage.openOnlinerWebsite();
         homePage.movePointerOnElementOfMainMenu("Автобарахолка");
-        assertThat(homePage.verifySubmenuAvtobaracholkaIsDisplayed()).as("Submenu 'Автобарахолка' is not displayed").isTrue();
+        assertThat(homePage.verifySubmenuAvtobaracholkaIsDisplayed())
+                .as("Submenu 'Автобарахолка' is not displayed").isTrue();
     }
 
     @AfterClass

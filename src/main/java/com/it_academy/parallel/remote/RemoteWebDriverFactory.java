@@ -12,9 +12,6 @@ public class RemoteWebDriverFactory {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setDriver(String browser) {
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setPlatform(Platform.WIN10);
-//        capabilities.setBrowserName(browser);
         DesiredCapabilities capabilities = CapabilityFactory.getCapabilities(browser);
         try {
             driver.set(new RemoteWebDriver(new URL("http://192.168.0.113:4444"), capabilities));
